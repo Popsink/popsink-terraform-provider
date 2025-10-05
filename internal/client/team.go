@@ -36,7 +36,7 @@ func (c *Client) CreateTeam(ctx context.Context, team *TeamCreate) (*TeamRead, e
 	if err != nil {
 		return nil, err
 	}
-	defer resp.Body.Close()
+	defer func() { _ = resp.Body.Close() }()
 
 	if err := checkResponse(resp); err != nil {
 		return nil, err
@@ -62,7 +62,7 @@ func (c *Client) GetTeam(ctx context.Context, teamID string) (*TeamRead, error) 
 	if err != nil {
 		return nil, err
 	}
-	defer resp.Body.Close()
+	defer func() { _ = resp.Body.Close() }()
 
 	if resp.StatusCode == http.StatusNotFound {
 		return nil, nil
@@ -92,7 +92,7 @@ func (c *Client) UpdateTeam(ctx context.Context, teamID string, team *TeamUpdate
 	if err != nil {
 		return nil, err
 	}
-	defer resp.Body.Close()
+	defer func() { _ = resp.Body.Close() }()
 
 	if err := checkResponse(resp); err != nil {
 		return nil, err
@@ -118,7 +118,7 @@ func (c *Client) DeleteTeam(ctx context.Context, teamID string) error {
 	if err != nil {
 		return err
 	}
-	defer resp.Body.Close()
+	defer func() { _ = resp.Body.Close() }()
 
 	if resp.StatusCode == http.StatusNotFound {
 		return nil

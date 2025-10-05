@@ -1,9 +1,9 @@
 # Terraform Provider for Popsink
 
-[![Build Status](https://github.com/popsink/terraform-provider-popsink/workflows/test/badge.svg)](https://github.com/popsink/terraform-provider-popsink/actions)
-[![Go Version](https://img.shields.io/github/go-mod/go-version/popsink/terraform-provider-popsink)](https://golang.org/)
-[![License](https://img.shields.io/github/license/popsink/terraform-provider-popsink)](LICENSE)
-[![GitHub release](https://img.shields.io/github/v/release/popsink/terraform-provider-popsink)](https://github.com/popsink/terraform-provider-popsink/releases)
+[![Build Status](https://github.com/Popsink/popsink-terraform-provider/workflows/test/badge.svg)](https://github.com/Popsink/popsink-terraform-provider/actions)
+[![Go Version](https://img.shields.io/github/go-mod/go-version/Popsink/popsink-terraform-provider)](https://golang.org/)
+[![License](https://img.shields.io/github/license/Popsink/popsink-terraform-provider)](LICENSE)
+[![GitHub release](https://img.shields.io/github/v/release/Popsink/popsink-terraform-provider)](https://github.com/Popsink/popsink-terraform-provider/releases)
 
 The Popsink Terraform Provider allows you to manage Popsink data pipelines using Infrastructure as Code.
 
@@ -63,8 +63,8 @@ For a complete working example, see [`examples/main.tf`](./examples/main.tf) whi
 If you want to build the provider from source:
 
 ```bash
-git clone https://github.com/popsink/terraform-provider-popsink
-cd terraform-provider-popsink
+git clone https://github.com/Popsink/popsink-terraform-provider
+cd popsink-terraform-provider
 go build -o terraform-provider-popsink
 ```
 
@@ -299,8 +299,8 @@ make help
 
 We welcome contributions from the community! Here's how you can help:
 
-- **Report bugs**: Open an [issue](https://github.com/popsink/terraform-provider-popsink/issues/new?template=bug_report.yml) using our bug report template
-- **Request features**: Submit a [feature request](https://github.com/popsink/terraform-provider-popsink/issues/new?template=feature_request.yml)
+- **Report bugs**: Open an [issue](https://github.com/Popsink/popsink-terraform-provider/issues/new?template=bug_report.yml) using our bug report template
+- **Request features**: Submit a [feature request](https://github.com/Popsink/popsink-terraform-provider/issues/new?template=feature_request.yml)
 - **Submit pull requests**: See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines
 
 Please read our [Code of Conduct](CODE_OF_CONDUCT.md) before contributing.
@@ -319,7 +319,7 @@ If you discover a security vulnerability, please review our [Security Policy](SE
 ## Support
 
 - **Documentation**: Check the [docs](./docs) directory for detailed resource documentation
-- **Issues**: Search [existing issues](https://github.com/popsink/terraform-provider-popsink/issues) or create a new one
+- **Issues**: Search [existing issues](https://github.com/Popsink/popsink-terraform-provider/issues) or create a new one
 - **Examples**: See the [examples](./examples) directory for complete working examples
 
 ## License
@@ -328,4 +328,4 @@ This provider is distributed under the Mozilla Public License 2.0. See [LICENSE]
 
 ## Acknowledgments
 
-This provider is maintained by the Popsink team and the community. Thank you to all [contributors](https://github.com/popsink/terraform-provider-popsink/graphs/contributors)!
+This provider is maintained by the Popsink team and the community. Thank you to all [contributors](https://github.com/Popsink/popsink-terraform-provider/graphs/contributors)!

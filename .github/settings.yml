@@ -12,7 +12,6 @@ repository:
     - terraform-provider
     - popsink
     - infrastructure-as-code
-    - golang
     - data-pipelines
     - iac
 
@@ -87,7 +86,6 @@ branches:
         users: []
         teams: []
         apps: []
-
 # Collaborators and teams configuration
 # Uncomment and customize as needed
 # teams:

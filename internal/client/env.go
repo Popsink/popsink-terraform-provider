@@ -9,7 +9,7 @@ import (
 )
 
 // BrokerConfiguration represents the retention configuration for an environment
-type BrokerConfiguration map[string]interface{}
+type BrokerConfiguration map[string]any
 
 // EnvCreate represents the request structure for creating an environment
 type EnvCreate struct {
@@ -39,7 +39,7 @@ func (c *Client) CreateEnv(ctx context.Context, env *EnvCreate) (*EnvRead, error
 	if err != nil {
 		return nil, err
 	}
-	defer resp.Body.Close()
+	defer func() { _ = resp.Body.Close() }()
 
 	if err := checkResponse(resp); err != nil {
 		return nil, err
@@ -64,7 +64,7 @@ func (c *Client) GetEnv(ctx context.Context, envID string) (*EnvRead, error) {
 	if err != nil {
 		return nil, err
 	}
-	defer resp.Body.Close()
+	defer func() { _ = resp.Body.Close() }()
 
 	if resp.StatusCode == http.StatusNotFound {
 		return nil, nil // Environment not found
@@ -93,7 +93,7 @@ func (c *Client) UpdateEnv(ctx context.Context, envID string, env *EnvUpdate) (*
 	if err != nil {
 		return nil, err
 	}
-	defer resp.Body.Close()
+	defer func() { _ = resp.Body.Close() }()
 
 	if err := checkResponse(resp); err != nil {
 		return nil, err

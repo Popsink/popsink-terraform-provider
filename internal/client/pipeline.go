@@ -21,15 +21,15 @@ const (
 
 // PipelineConfiguration represents the configuration structure for a pipeline
 type PipelineConfiguration struct {
-	SourceName   string                 `json:"source_name"`
-	SourceType   *string                `json:"source_type,omitempty"`
-	SourceConfig map[string]interface{} `json:"source_config"`
-	TargetName   string                 `json:"target_name"`
-	TargetType   *string                `json:"target_type,omitempty"`
-	TargetConfig map[string]interface{} `json:"target_config"`
-	SMTName      string                 `json:"smt_name"`
-	SMTConfig    []interface{}          `json:"smt_config"`
-	DraftStep    string                 `json:"draft_step"`
+	SourceName   string         `json:"source_name"`
+	SourceType   *string        `json:"source_type,omitempty"`
+	SourceConfig map[string]any `json:"source_config"`
+	TargetName   string         `json:"target_name"`
+	TargetType   *string        `json:"target_type,omitempty"`
+	TargetConfig map[string]any `json:"target_config"`
+	SMTName      string         `json:"smt_name"`
+	SMTConfig    []any          `json:"smt_config"`
+	DraftStep    string         `json:"draft_step"`
 }
 
 // PipelineCreate represents the request to create a pipeline
@@ -64,7 +64,7 @@ func (c *Client) CreatePipeline(ctx context.Context, pipeline *PipelineCreate) (
 	if err != nil {
 		return nil, err
 	}
-	defer resp.Body.Close()
+	defer func() { _ = resp.Body.Close() }()
 
 	if err := checkResponse(resp); err != nil {
 		return nil, err
@@ -90,7 +90,7 @@ func (c *Client) GetPipeline(ctx context.Context, pipelineID string) (*PipelineR
 	if err != nil {
 		return nil, err
 	}
-	defer resp.Body.Close()
+	defer func() { _ = resp.Body.Close() }()
 
 	if resp.StatusCode == http.StatusNotFound || resp.StatusCode == http.StatusForbidden {
 		return nil, nil
@@ -120,7 +120,7 @@ func (c *Client) UpdatePipeline(ctx context.Context, pipelineID string, pipeline
 	if err != nil {
 		return nil, err
 	}
-	defer resp.Body.Close()
+	defer func() { _ = resp.Body.Close() }()
 
 	if err := checkResponse(resp); err != nil {
 		return nil, err
@@ -146,7 +146,7 @@ func (c *Client) DeletePipeline(ctx context.Context, pipelineID string) error {
 	if err != nil {
 		return err
 	}
-	defer resp.Body.Close()
+	defer func() { _ = resp.Body.Close() }()
 
 	if resp.StatusCode == http.StatusNotFound {
 		return nil

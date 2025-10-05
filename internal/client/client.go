@@ -29,7 +29,7 @@ func NewClient(baseURL, token string) *Client {
 }
 
 // doRequest performs an HTTP request with authentication
-func (c *Client) doRequest(ctx context.Context, method, path string, body interface{}) (*http.Response, error) {
+func (c *Client) doRequest(ctx context.Context, method, path string, body any) (*http.Response, error) {
 	var reqBody io.Reader
 	if body != nil {
 		jsonData, err := json.Marshal(body)
@@ -64,7 +64,7 @@ func checkResponse(resp *http.Response) error {
 	}
 
 	bodyBytes, _ := io.ReadAll(resp.Body)
-	resp.Body.Close()
+	_ = resp.Body.Close()
 
 	return fmt.Errorf("API request failed with status %d: %s", resp.StatusCode, string(bodyBytes))
 }

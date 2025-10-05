@@ -18,8 +18,8 @@ import (
 
 // normalizeRetentionConfig filters the API response to only include non-empty/non-null fields
 // that would be meaningful in the Terraform configuration
-func normalizeRetentionConfig(config client.BrokerConfiguration) map[string]interface{} {
-	normalized := make(map[string]interface{})
+func normalizeRetentionConfig(config client.BrokerConfiguration) map[string]any {
+	normalized := make(map[string]any)
 
 	// Copy all non-empty fields from the original config
 	for key, value := range config {
