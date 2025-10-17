@@ -1,40 +1,16 @@
-# Dependabot configuration for automated dependency updates
-# See https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
-
 version: 2
 updates:
-  # Maintain dependencies for GitHub Actions
+  - package-ecosystem: gomod
+    directory: "/"
+    schedule:
+      interval: monthly
+
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: "weekly"
-      day: "monday"
-    open-pull-requests-limit: 10
-    labels:
-      - "dependencies"
-      - "github-actions"
-    commit-message:
-      prefix: "chore"
-      include: "scope"
+      interval: monthly
 
-  # Maintain dependencies for Go modules
-  - package-ecosystem: "gomod"
-    directory: "/"
+  - package-ecosystem: gomod
+    directory: "/cmd/tftemplate/"
     schedule:
-      interval: "weekly"
-      day: "monday"
-    open-pull-requests-limit: 10
-    labels:
-      - "dependencies"
-      - "go"
-    commit-message:
-      prefix: "chore"
-      include: "scope"
-    # Group minor and patch updates together
-    groups:
-      go-dependencies:
-        patterns:
-          - "*"
-        update-types:
-          - "minor"
-          - "patch"
+      interval: monthly

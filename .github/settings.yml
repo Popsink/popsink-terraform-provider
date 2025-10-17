@@ -62,7 +62,7 @@ branches:
           - "test / Format Check"
           - "test / Lint"
           - "test / Go Mod Tidy"
-          - "test / Unit Tests (ubuntu-latest, 1.24)"
+          - "test / Unit Tests (ubuntu-latest, 1.25)"
           - "test / Build"
           - "security / Dependency Vulnerability Scan"
 
